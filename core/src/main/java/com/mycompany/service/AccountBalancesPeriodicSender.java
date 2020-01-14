@@ -5,12 +5,20 @@ import com.mycompany.persistence.Account;
 import java.util.concurrent.TimeUnit;
 
 /**
- *  Sends actual account balances periodically to a specific destination (eg. standard output, MQ ...)
+ * Sends actual account balances periodically to a specific destination (eg. standard output, MQ ...)
  */
-public interface AccountBalancesPeriodicSender {
+public abstract class AccountBalancesPeriodicSender {
 
-    void start(Account account, int period, TimeUnit timeUnit);
+    protected int period;
+    protected TimeUnit timeUnit;
 
-    void stop();
+    public AccountBalancesPeriodicSender(int period, TimeUnit timeUnit) {
+        this.period = period;
+        this.timeUnit = timeUnit;
+    }
+
+    abstract public void start(Account account);
+
+    abstract public void stop();
 
 }

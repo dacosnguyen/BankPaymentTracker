@@ -1,6 +1,5 @@
 package com.mycompany;
 
-import com.mycompany.crud.AccountBalancesCRUD;
 import com.mycompany.crud.IAccountBalancesCRUD;
 import com.mycompany.persistence.Account;
 import com.mycompany.service.AccountBalancesPeriodicSender;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Stream;
 
@@ -19,20 +17,21 @@ import java.util.stream.Stream;
  */
 public class CoreEnginePikachu implements AbstractCoreEngine {
 
-    public static final String QUIT_PROGRAM_STR = "QUIT";
-    private final IAccountBalancesCRUD accountBalancesCRUD;
+    private static final String QUIT_PROGRAM_STR = "QUIT";
+    private IAccountBalancesCRUD accountBalancesCRUD;
     private AccountBalancesPeriodicSender accountBalancesPeriodicSender;
 
-    public CoreEnginePikachu(AccountBalancesPeriodicSender sender) {
-        accountBalancesPeriodicSender = sender;
-        accountBalancesCRUD = new AccountBalancesCRUD();
+    public CoreEnginePikachu(AccountBalancesPeriodicSender accountBalancesPeriodicSender,
+                             IAccountBalancesCRUD accountBalancesCRUD) {
+        this.accountBalancesPeriodicSender = accountBalancesPeriodicSender;
+        this.accountBalancesCRUD = accountBalancesCRUD;
     }
 
     public void start() {
         updateFromInputFile();
 
         // TODO change to minutes
-        accountBalancesPeriodicSender.start(Account.INSTANCE, 5, TimeUnit.SECONDS);
+        accountBalancesPeriodicSender.start(Account.INSTANCE);
 
         updateFromStdin();
 
@@ -53,7 +52,6 @@ public class CoreEnginePikachu implements AbstractCoreEngine {
 
             try (Stream<String> stream = Files.lines(Paths.get(filePath))) {
                 System.out.println("File loaded successfully.\n");
-                // process each bank transfer
                 stream.forEach(bankTransfer -> {
                     try {
                         accountBalancesCRUD.update(bankTransfer);
