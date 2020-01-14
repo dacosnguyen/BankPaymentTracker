@@ -7,10 +7,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * Sends actual account balances periodically to a specific destination (eg. standard output, MQ ...)
  */
-public abstract class AccountBalancesPeriodicSender {
+public abstract class AccountBalancesPeriodicSender<O> {
 
     protected int period;
     protected TimeUnit timeUnit;
+    protected O lastOutput;
 
     public AccountBalancesPeriodicSender(int period, TimeUnit timeUnit) {
         this.period = period;
@@ -20,5 +21,7 @@ public abstract class AccountBalancesPeriodicSender {
     abstract public void start(Account account);
 
     abstract public void stop();
+
+    abstract public O getLastOutput();
 
 }
