@@ -16,7 +16,7 @@ public class AccountTest {
     private Map<Currency, AccountBalance> currencyAccountBalanceMap;
 
     @BeforeClass
-    public void init() {
+    public void setUp() {
         currencyAccountBalanceMap = Account.INSTANCE.getCurrencyAccountBalanceMap();
     }
 
