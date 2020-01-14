@@ -22,7 +22,6 @@ public class BankTransferStrategyStdinTest {
 
     @Test
     public void testIdealUC() {
-        // Set up alternate System.err PrintStream that prints to a buffer
         ByteArrayOutputStream bytes = getErrStream();
 
         final Iterator<String> bankTransfersIterator = Stream.of("USD 100", "EUR -200", "QUIT").iterator();

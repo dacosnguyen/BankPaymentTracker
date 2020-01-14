@@ -18,7 +18,7 @@ public class BankTransferStrategyStdin implements BankTransferStrategy {
     /**
      * Used primarily for tests.
      */
-    protected BankTransferStrategyStdin(Supplier<String> stringSupplier) {
+    public BankTransferStrategyStdin(Supplier<String> stringSupplier) {
         this.stringSupplier = stringSupplier;
     }
 
