@@ -10,9 +10,6 @@ import java.util.stream.Stream;
 
 public class TestHelper {
 
-    /**
-     * Used primarily for tests.
-     */
     public static void resetAccountBalancesToZero() {
         Map<Currency, AccountBalance> balances = Account.INSTANCE.getCurrencyAccountBalanceMap();
         balances.clear();
