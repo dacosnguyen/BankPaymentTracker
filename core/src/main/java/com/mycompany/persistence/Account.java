@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 /**
- * A user account containing account balances.
+ * An user account containing account balances.
  * This simulates a database object.
  * This singleton is implemented as enum (recommended in Effective Java by Joshua Bloch).
  */

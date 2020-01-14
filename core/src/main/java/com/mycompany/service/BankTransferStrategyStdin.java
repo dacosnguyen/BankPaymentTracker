@@ -5,6 +5,11 @@ import com.mycompany.crud.IAccountBalancesCRUD;
 import java.util.Scanner;
 import java.util.function.Supplier;
 
+/**
+ * Loads data from an stdin.
+ * If a bank transfer is invalid. The user is prompted again.
+ * If an user is done he must enter an {@link BankTransferStrategyStdin#QUIT_PROGRAM_STR} string to terminate the prompts.
+ */
 public class BankTransferStrategyStdin implements BankTransferStrategy {
 
     private static final String QUIT_PROGRAM_STR = "QUIT";

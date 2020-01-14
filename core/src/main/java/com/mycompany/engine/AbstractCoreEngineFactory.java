@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.mycompany.engine;
 
 public interface AbstractCoreEngineFactory {
 

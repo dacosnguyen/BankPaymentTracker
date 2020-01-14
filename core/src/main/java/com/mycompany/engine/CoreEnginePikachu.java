@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.mycompany.engine;
 
 import com.mycompany.crud.IAccountBalancesCRUD;
 import com.mycompany.persistence.Account;
@@ -8,10 +8,10 @@ import com.mycompany.service.BankTransferStrategyInputFile;
 import com.mycompany.service.BankTransferStrategyStdin;
 
 /**
- * PIKACHU core engine processes bank transfers from a text file or a standard input.
+ * PIKACHU core engine processes bank transfers from a text file and a standard input. This is the default core engine.
  * The engine have a service which sends a timestamp and actual account balances periodically to an output.
  * <p>
- * O is a type of {@link AccountBalancesPeriodicSender} Output
+ * O is a type of {@link AccountBalancesPeriodicSender} Output.
  */
 public class CoreEnginePikachu<O> implements AbstractCoreEngine {
     private final IAccountBalancesCRUD accountBalancesCRUD;

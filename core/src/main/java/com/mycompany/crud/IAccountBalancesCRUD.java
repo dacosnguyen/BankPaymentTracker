@@ -4,7 +4,9 @@ import com.mycompany.types.Currency;
 
 import java.math.BigDecimal;
 
-
+/**
+ * CRUD interface for account balances.
+ */
 public interface IAccountBalancesCRUD {
 
     void update(String bankTransfer) throws IllegalArgumentException;

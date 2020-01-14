@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 public class AccountBalancesCRUD implements IAccountBalancesCRUD {
 
+    private final Account account = Account.INSTANCE;
     private static final Pattern bankTransferFormat;
 
     static {
@@ -35,7 +36,7 @@ public class AccountBalancesCRUD implements IAccountBalancesCRUD {
     }
 
     private synchronized void updateAccountBalanceSynchronized(Currency currency, BigDecimal amount) {
-        Map<Currency, AccountBalance> balanceMap = Account.INSTANCE.getCurrencyAccountBalanceMap();
+        Map<Currency, AccountBalance> balanceMap = account.getCurrencyAccountBalanceMap();
         final BigDecimal newAmount = balanceMap.get(currency).getAmount().add(amount);
         final AccountBalance newAccountBalance = new AccountBalance(currency, newAmount);
         balanceMap.replace(currency, newAccountBalance);

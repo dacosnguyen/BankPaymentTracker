@@ -1,4 +1,4 @@
-package com.mycompany;
+package com.mycompany.engine;
 
 import com.mycompany.crud.AccountBalancesCRUD;
 import com.mycompany.service.AccountBalancesPeriodicSenderStdo;
@@ -6,7 +6,6 @@ import com.mycompany.service.BankTransferStrategyInputFile;
 import com.mycompany.service.BankTransferStrategyStdin;
 import org.testng.annotations.Test;
 
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class CoreEnginePikachuTest {

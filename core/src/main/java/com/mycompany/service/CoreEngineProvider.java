@@ -1,4 +1,8 @@
-package com.mycompany;
+package com.mycompany.service;
+
+import com.mycompany.engine.AbstractCoreEngineFactory;
+import com.mycompany.engine.CoreEnginePikachuFactory;
+import com.mycompany.engine.CoreEnginePsyduckFactory;
 
 import java.util.EnumMap;
 import java.util.Map;

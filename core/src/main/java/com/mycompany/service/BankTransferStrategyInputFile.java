@@ -9,6 +9,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+/**
+ * Loads data from an input file and updates account balances defined by bank transfers.
+ * Invalid bank transfers are reported to stderr but the bank transfer processing continues.
+ */
 public class BankTransferStrategyInputFile implements BankTransferStrategy {
 
     private Supplier<String> filePathSupplier;
