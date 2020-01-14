@@ -15,13 +15,13 @@ import java.util.stream.Stream;
  * PIKACHU core engine processes bank transfers from a text file or a standard input.
  * The engine have a service which sends a timestamp and actual account balances periodically to an output.
  */
-public class CoreEnginePikachu implements AbstractCoreEngine {
+public class CoreEnginePikachu<T> implements AbstractCoreEngine {
 
     private static final String QUIT_PROGRAM_STR = "QUIT";
     private IAccountBalancesCRUD accountBalancesCRUD;
-    private AccountBalancesPeriodicSender accountBalancesPeriodicSender;
+    private AccountBalancesPeriodicSender<T> accountBalancesPeriodicSender;
 
-    public CoreEnginePikachu(AccountBalancesPeriodicSender accountBalancesPeriodicSender,
+    public CoreEnginePikachu(AccountBalancesPeriodicSender<T> accountBalancesPeriodicSender,
                              IAccountBalancesCRUD accountBalancesCRUD) {
         this.accountBalancesPeriodicSender = accountBalancesPeriodicSender;
         this.accountBalancesCRUD = accountBalancesCRUD;

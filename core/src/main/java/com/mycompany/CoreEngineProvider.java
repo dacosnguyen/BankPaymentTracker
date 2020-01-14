@@ -10,7 +10,6 @@ public class CoreEngineProvider {
         PSYDUCK
     }
 
-    // TODO write test for number of core engines
     private static final Map<CORE_ENGINE_NAME, AbstractCoreEngineFactory> map;
     static {
         map = new EnumMap<>(CORE_ENGINE_NAME.class);

@@ -1,5 +1,6 @@
 package com.mycompany.crud;
 
+import com.mycompany.TestHelper;
 import com.mycompany.persistence.Account;
 import com.mycompany.types.AccountBalance;
 import com.mycompany.types.Currency;
@@ -19,6 +20,7 @@ public class AccountBalancesCRUDTest {
 
     @BeforeClass
     public void setUp() {
+        TestHelper.resetAccountBalancesToZero();
         crud = new AccountBalancesCRUD();
     }
 

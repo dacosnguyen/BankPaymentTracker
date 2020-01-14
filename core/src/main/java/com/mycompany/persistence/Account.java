@@ -26,6 +26,11 @@ public enum Account {
     private static Map<Currency, AccountBalance> initAcountBalances() {
         Map<Currency, AccountBalance> balances;
         balances = new ConcurrentHashMap<>();
+        initBalancesToZero(balances);
+        return balances;
+    }
+
+    private static void initBalancesToZero(Map<Currency, AccountBalance> balances) {
         Stream.of(Currency.values())
                 .forEach(currency -> balances.put(
                         currency,
@@ -33,10 +38,10 @@ public enum Account {
                                 currency,
                                 new BigDecimal(0))) // Accounts start with 0 balance
                 );
-        return balances;
     }
 
     public Map<Currency, AccountBalance> getCurrencyAccountBalanceMap() {
         return currencyAccountBalanceMap;
     }
+
 }

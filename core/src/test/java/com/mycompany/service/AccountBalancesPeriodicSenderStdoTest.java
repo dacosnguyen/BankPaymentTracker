@@ -1,14 +1,21 @@
 package com.mycompany.service;
 
+import com.mycompany.TestHelper;
 import com.mycompany.crud.AccountBalancesCRUD;
 import com.mycompany.crud.IAccountBalancesCRUD;
 import com.mycompany.persistence.Account;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class AccountBalancesPeriodicSenderStdoTest {
+
+    @BeforeClass
+    public void setUp() {
+        TestHelper.resetAccountBalancesToZero();
+    }
 
     @Test
     public void testStart() throws InterruptedException {

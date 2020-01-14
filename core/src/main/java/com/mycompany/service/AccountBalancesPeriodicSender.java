@@ -22,6 +22,9 @@ public abstract class AccountBalancesPeriodicSender<O> {
 
     abstract public void stop();
 
+    /**
+     * Used primarily for tests.
+     */
     abstract public O getLastOutput();
 
 }

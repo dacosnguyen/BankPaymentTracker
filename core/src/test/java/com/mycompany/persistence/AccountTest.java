@@ -1,5 +1,6 @@
 package com.mycompany.persistence;
 
+import com.mycompany.TestHelper;
 import com.mycompany.types.AccountBalance;
 import com.mycompany.types.Currency;
 import org.testng.Assert;
@@ -17,6 +18,7 @@ public class AccountTest {
 
     @BeforeClass
     public void setUp() {
+        TestHelper.resetAccountBalancesToZero();
         currencyAccountBalanceMap = Account.INSTANCE.getCurrencyAccountBalanceMap();
     }
 
