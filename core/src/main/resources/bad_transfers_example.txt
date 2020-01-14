@@ -1,0 +1,5 @@
+USD 1000
+WTH 100
+NIL -100
+EUR null
+CZK 200
