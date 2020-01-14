@@ -29,21 +29,15 @@ public class CoreEnginePikachu implements AbstractCoreEngine {
 
     public void start() {
         updateFromInputFile();
-
-        // TODO change to minutes
         accountBalancesPeriodicSender.start(Account.INSTANCE);
-
         updateFromStdin();
-
         accountBalancesPeriodicSender.stop();
     }
 
     private void updateFromInputFile() {
         AtomicBoolean repeat = new AtomicBoolean(true);
         do {
-            // Ask for an optional path to file with transfers
             System.out.println("[Optional] Enter a file path to a text files with transfers (to skip just press ENTER): ");
-            // /home/dacos/Workplace/BankPaymentTracker/core/src/main/resources/transfers_example.txt
             String filePath = new Scanner(System.in).nextLine();
             if (filePath.length() == 0) {
                 System.out.println("File fetching skipped.\n");
