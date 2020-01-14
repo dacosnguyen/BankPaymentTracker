@@ -5,7 +5,7 @@ import com.mycompany.persistence.Account;
 import com.mycompany.types.AccountBalance;
 import com.mycompany.types.Currency;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
@@ -18,7 +18,7 @@ public class AccountBalancesCRUDTest {
 
     private AccountBalancesCRUD crud;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         TestHelper.resetAccountBalancesToZero();
         crud = new AccountBalancesCRUD();

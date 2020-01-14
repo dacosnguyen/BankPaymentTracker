@@ -11,10 +11,10 @@ import java.util.stream.Stream;
 
 public class BankTransferStrategyInputFile implements BankTransferStrategy {
 
-    private Supplier<String> stringSupplier;
+    private Supplier<String> filePathSupplier;
 
-    public BankTransferStrategyInputFile(Supplier<String> stringSupplier) {
-        this.stringSupplier = stringSupplier;
+    public BankTransferStrategyInputFile(Supplier<String> filePathSupplier) {
+        this.filePathSupplier = filePathSupplier;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class BankTransferStrategyInputFile implements BankTransferStrategy {
         AtomicBoolean repeat = new AtomicBoolean(true);
         do {
             System.out.println("[Optional] Enter a file path to a text files with transfers (to skip just press ENTER): ");
-            String filePath = stringSupplier.get();
+            String filePath = filePathSupplier.get();
             if (filePath.length() == 0) {
                 System.out.println("File fetching skipped.\n");
                 break;
